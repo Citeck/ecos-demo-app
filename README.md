@@ -20,7 +20,7 @@ If you are new to ECOS platform and would like to run the software locally, we r
 4. Enter in field **'Text data'** value *'error'* and click **'Save'** button. You should see error from transactional listener defined in *ru.citeck.ecos.webapp.demo.events.DemoEcosEventListener*.
 5. Change value of the field **'Text data'** to anything else and fill in other fields.
 6. After creation you'll see information about created record:
-    - Status will be **'New'**. This is defined in property ***defaultStatus** in type config - *src/main/resources/eapps/artifacts/model/type/demo-type.yml*
+    - Status will be **'New'**. This is defined in property **defaultStatus** in type config - *src/main/resources/eapps/artifacts/model/type/demo-type.yml*
     - Task widgets will show active task for current user. BPMN process started because we have process definition in *src/main/resources/eapps/artifacts/process/bpmn/demo-process.bpmn.xml* with flags *ecos:enabled="true"* and *ecos:autoStartEnabled="true"*.
 7. Click the **'Done'** button in the current task widget.
 8. Task will disappear and external task will be started - *ru.citeck.ecos.webapp.demo.exttask.DemoExternalTask*.
