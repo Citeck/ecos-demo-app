@@ -25,7 +25,12 @@ public class DemoEcosEventListener {
     @PostConstruct
     public void init() {
 
-        Predicate filter = Predicates.contains("record.textField", "error");
+        Predicate filter = Predicates.and(
+            // For transactional listeners filtering by type is very important
+            // to avoid unnecessary events emitting
+            Predicates.eq("typeDef.id", "demo-type"),
+            Predicates.contains("record.textField", "error")
+        );
 
         eventsService.<UserCreatedOrUpdatedEventAtts>addListener(builder -> {
 

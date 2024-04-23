@@ -26,7 +26,7 @@ If you are new to ECOS platform and would like to run the software locally, we r
 8. Task will disappear and external task will be started - ru.citeck.ecos.webapp.demo.exttask.DemoExternalTask;
 9. After ~5-10 seconds you can update your browser tab and see new status 'Completed' and filled field 'Field generated in external task'. BPMN Process completed at this point.
 10. You can click to 'Send demo email' to test custom action with email sending. 
-    * Action class: ru.citeck.ecos.webapp.demo.action.SendDemoEmailAction
+    * Action class: ru.citeck.ecos.webapp.demo.actions.SendDemoEmailAction
     * Action definition: src/main/resources/eapps/artifacts/ui/action/send-demo-email-action.yml
     * Email template: src/main/resources/eapps/artifacts/notification/template/demo-email.html.ftl
     * Result email can be found in mailhog (if you don't change default email settings) - http://localhost:8025/

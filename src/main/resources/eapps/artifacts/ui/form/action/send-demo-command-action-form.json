@@ -1,8 +1,8 @@
 {
-  "id": "send-demo-email-action-form",
+  "id": "send-demo-command-action-form",
   "title": {
-    "ru": "Форма для отправки демо email'а",
-    "en": "Send demo email action form"
+    "ru": "Форма для отправки демо команды",
+    "en": "Send demo command action form"
   },
   "definition": {
     "components": [

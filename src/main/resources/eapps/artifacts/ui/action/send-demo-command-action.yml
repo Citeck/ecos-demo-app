@@ -1,8 +1,8 @@
 ---
-id: send-demo-email-action
+id: send-demo-command-action
 name:
-  ru: Отправить демо письмо
-  en: Send demo email
+  ru: Отправить демо команду
+  en: Send demo command
 
 # Available action types can be found here: https://citeck-ecos.readthedocs.io/ru/latest/settings_kb/ui_actions.html
 type: mutate
@@ -10,10 +10,10 @@ type: mutate
 confirm:
   # confirm popup title
   title:
-    ru: Отправить демо письмо
-    en: Send demo email
+    ru: Отправить демо команду
+    en: Send demo command
   # confirm popup form. Without form will be simple yes/no window
-  formRef: uiserv/form@send-demo-email-action-form
+  formRef: uiserv/form@send-demo-command-action-form
   # attributes mapping required to transfer data from confirm form to action config
   # key - data destination, value - attribute name on confirm form
   attributesMapping:
@@ -22,8 +22,8 @@ confirm:
 config:
   record:
     # ecos-demo-app - appName of our webapp. See field NAME in class ru.citeck.ecos.webapp.demo.EcosDemoApp
-    # send-demo-email - identifier of RecordsDAO. See ru.citeck.ecos.webapp.demo.actions.SendDemoEmailAction.ID
-    id: ecos-demo-app/send-demo-email@
+    # send-demo-command - identifier of RecordsDAO. See ru.citeck.ecos.webapp.demo.commands.SendDemoCommandAction.ID
+    id: ecos-demo-app/send-demo-command@
     attributes:
       entityRef: "${?id}" # 'entityRef' - attribute value alias, '?id' - attribute to load from document
 

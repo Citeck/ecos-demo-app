@@ -1,4 +1,4 @@
-package ru.citeck.ecos.webapp.demo.action;
+package ru.citeck.ecos.webapp.demo.actions;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

@@ -12,6 +12,7 @@ import ru.citeck.ecos.records3.RecordsService;
 import ru.citeck.ecos.webapp.lib.spring.context.txn.RunInTransaction;
 
 /**
+ * Example of external task for demo BPMN process.
  * <a href="https://citeck-ecos.readthedocs.io/ru/latest/settings_kb/processes/ecos_bpmn/ecos_bpmn_external_task.html">Documentation</a>
  */
 @Slf4j

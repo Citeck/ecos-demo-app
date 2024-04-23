@@ -21,6 +21,7 @@ inheritActions: false
 actions:
   - uiserv/action@send-demo-email-action
   - uiserv/action@create-child-entity-action
+  - uiserv/action@send-demo-command-action
   - uiserv/action@view-dashboard
   - uiserv/action@edit
   - uiserv/action@delete
