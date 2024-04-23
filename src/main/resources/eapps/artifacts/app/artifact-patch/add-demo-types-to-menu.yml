@@ -1,0 +1,50 @@
+---
+id: "add-demo-types-to-menu"
+name:
+  ru: Добавить демо типы в меню
+  en: Add demo types to the menu
+
+target: ui/menu$default-menu-v1
+
+type: json
+config:
+  operations:
+    - {
+      "op": "add",
+      "path": "$..[?(@.id == \"sections\")].items",
+      "value": {
+        "id": "demo-type-section",
+        "label": {
+          "ru": "Демо тип",
+          "en": "Demo type"
+        },
+        "icon": "ui/icon@i-leftmenu-current-tasks",
+        "type": "SECTION",
+        "items": [
+          {
+            "id": "demo-type-journal",
+            "label": {
+              "ru": "Журнал демо типа",
+              "en": "Demo type journal"
+            },
+            "type": "JOURNAL",
+            "config": {
+              "recordRef": "uiserv/journal@demo-type-journal",
+              "displayCount": true
+            }
+          },
+          {
+            "id": "demo-inmem-type-journal",
+            "label": {
+              "ru": "in-memory демо тип",
+              "en": "In-memory demo type"
+            },
+            "type": "JOURNAL",
+            "config": {
+              "recordRef": "uiserv/journal@type$demo-inmem-type",
+              "displayCount": true
+            }
+          }
+        ]
+      }
+    }

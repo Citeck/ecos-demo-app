@@ -1,0 +1,29 @@
+---
+id: demo-child-type
+name:
+  ru: Дочерний демо тип
+  en: Child demo type
+
+parentRef: emodel/type@case
+
+# default form and journal will be generated based on model attributes
+formRef: uiserv/form@DEFAULT_FORM
+journalRef: uiserv/journal@DEFAULT_JOURNAL
+
+defaultCreateVariant: true
+
+# ECOS_MODEL - automatically create table 't_demo_child_type' in ecos-model for this type in schema 'ecos_data'
+# and RecordsDAO with id 'demo-child-type' for CRUD operations. Full sourceId will be 'emodel/demo-child-type'
+storageType: ECOS_MODEL
+
+model:
+  attributes:
+    - id: name
+      name:
+        ru: Имя
+        en: Name
+    - id: number
+      type: NUMBER
+      name:
+        ru: Число
+        en: Number

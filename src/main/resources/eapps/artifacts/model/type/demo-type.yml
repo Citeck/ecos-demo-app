@@ -1,0 +1,79 @@
+---
+id: demo-type
+
+name:
+  ru: Демо тип
+  en: Demo type
+
+parentRef: emodel/type@case
+
+formRef: uiserv/form@demo-type-form
+journalRef: uiserv/journal@demo-type-journal
+
+defaultCreateVariant: true
+
+# ECOS_MODEL - automatically create table 't_demo_type' in ecos-model for this type in schema 'ecos_data'
+# and RecordsDAO with id 'demo-type' for CRUD operations. Full sourceId will be 'emodel/demo-type'
+storageType: ECOS_MODEL
+
+inheritActions: false
+# Action in actions widget on record dashboard
+actions:
+  - uiserv/action@send-demo-email-action
+  - uiserv/action@create-child-entity-action
+  - uiserv/action@view-dashboard
+  - uiserv/action@edit
+  - uiserv/action@delete
+
+defaultStatus: new
+
+model:
+
+  statuses:
+    - id: new
+      name:
+        ru: Новый
+        en: New
+    - id: completed
+      name:
+        ru: Завершенный
+        en: Completed
+
+  roles:
+    - id: initiator
+      name:
+        ru: Инициатор
+        en: Initiator
+      computed:
+        type: ATTRIBUTE
+        config:
+          attribute: _creator
+
+  attributes:
+    - id: name
+      name:
+        ru: Имя
+        en: Name
+    - id: textField
+      name:
+        ru: Текстовые данные
+        en: Text data
+    - id: extTaskField
+      name:
+        ru: Поле сгенерированное во внешней задаче
+        en: Field generated in external task
+    - id: content
+      name:
+        ru: Файл
+        en: File
+      type: CONTENT
+    - id: childEntities
+      name:
+        ru: Дочерние демо сущности
+        en: Child demo entities
+      multiple: true
+      type: ASSOC
+      config:
+        child: true
+        typeRef: emodel/type@demo-child-type
+

@@ -1,0 +1,16 @@
+---
+id: demo-type-journal
+name:
+  en: Demo type entities
+  ru: Сущности демо типа
+
+# Linked type may be specified here by key typeRef
+# or calculated automatically by system using journalRef in type config.
+# typeRef: emodel/type@demo-type
+
+columns:
+# column names will be loaded from linked type.
+  - id: name
+  - id: textField
+  - id: content
+

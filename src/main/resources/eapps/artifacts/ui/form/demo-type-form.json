@@ -1,0 +1,140 @@
+{
+  "id": "demo-type-form",
+  "formKey": "",
+  "title": {
+    "en": "Demo type form",
+    "ru": "Форма для демо типа"
+  },
+  "description": {},
+  "customModule": "",
+  "typeRef": "",
+  "width": "m",
+  "system": false,
+  "i18n": {},
+  "definition": {
+    "components": [
+      {
+        "type": "textfield",
+        "input": true,
+        "key": "name",
+        "label": {
+          "ru": "Имя",
+          "en": "Name"
+        }
+      },
+      {
+        "type": "textfield",
+        "input": true,
+        "key": "textField",
+        "description": {
+          "ru": "Если вы введете 'error' в это поле, то сервер выдаст ошибку. См. класс ru.citeck.ecos.webapp.demo.events.DemoEcosEventListener",
+          "en": "If you write 'error' in this field server will throw error. See class ru.citeck.ecos.webapp.demo.events.DemoEcosEventListener"
+        },
+        "label": {
+          "ru": "Текстовые данные",
+          "en": "Text data"
+        }
+      },
+      {
+        "label": {
+          "ru": "Файл",
+          "en": "File"
+        },
+        "key": "content",
+        "onFileClick": "download",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "file",
+        "input": true
+      },
+      {
+        "label": {
+          "en": "Child entities",
+          "ru": "Дочерние сущности"
+        },
+        "key": "childEntities",
+        "multiple": true,
+        "source": {
+          "type": "journal",
+          "journal": {
+            "journalId": "type$demo-child-type",
+            "columns": []
+          }
+        },
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "isUsedJournalActions": true,
+        "type": "tableForm",
+        "input": true,
+        "reorder": false
+      },
+      {
+        "type": "columns",
+        "key": "buttons-columns",
+        "columns": [
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "index": 0,
+            "components": [],
+            "key": "column"
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "index": 1,
+            "key": "column",
+            "components": []
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "index": 2,
+            "components": [
+              {
+                "type": "button",
+                "key": "cancel",
+                "label": {
+                  "ru": "Отменить",
+                  "en": "Cancel"
+                },
+                "action": "event",
+                "event": "cancel",
+                "block": true,
+                "input": true
+              }
+            ],
+            "key": "column"
+          },
+          {
+            "md": 3,
+            "type": "column",
+            "input": false,
+            "index": 3,
+            "components": [
+              {
+                "type": "button",
+                "theme": "primary",
+                "key": "submit",
+                "label": {
+                  "ru": "Сохранить",
+                  "en": "Save"
+                },
+                "block": true,
+                "input": true
+              }
+            ],
+            "key": "column"
+          }
+        ],
+        "input": false
+      }
+    ],
+    "formId": "demo-type-form"
+  },
+  "attributes": {},
+  "notExists": false
+}

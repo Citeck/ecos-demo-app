@@ -1,0 +1,34 @@
+{
+  "id": "demo-user-task-form",
+  "title": {
+    "en": "Demo user task form",
+    "ru": "Демо форма пользовательской задачи"
+  },
+  "definition": {
+    "components": [
+      {
+        "label": {
+          "ru": "Комментарий",
+          "en": "Comment"
+        },
+        "key": "comment",
+        "defaultValue": "",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "textarea",
+        "input": true
+      },
+      {
+        "label": {
+          "ru": "Результат выполнения",
+          "en": "Task outcome"
+        },
+        "key": "taskOutcome",
+        "refreshOn": [],
+        "optionalWhenDisabled": false,
+        "type": "taskOutcome",
+        "input": true
+      }
+    ]
+  }
+}

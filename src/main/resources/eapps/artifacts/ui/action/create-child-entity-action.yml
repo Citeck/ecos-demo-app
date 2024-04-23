@@ -1,0 +1,16 @@
+---
+id: create-child-entity-action
+name:
+  ru: Создать дочернюю сущность
+  en: Create child entity
+
+# Available action types can be found here: https://citeck-ecos.readthedocs.io/ru/latest/settings_kb/ui_actions.html
+type: create
+
+config:
+  # ECOS type for created entity
+  typeRef: emodel/type@demo-child-type
+  # Predefined form attributes. You can use ${...} to load attributes from base record
+  attributes:
+    _parent: "${?id}" # _parent - association to parent entity
+    _parentAtt: childEntities # _parentAtt - parent attribute id which should be used to create child association

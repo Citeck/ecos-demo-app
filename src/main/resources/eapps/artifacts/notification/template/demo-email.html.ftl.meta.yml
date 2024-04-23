@@ -1,0 +1,19 @@
+---
+id: demo-email
+
+name: demo-email
+
+notificationTitle:
+  ru: Информация о '${docName}'
+  en: Information about '${docName}'
+
+# key - any name which may be used in ftl template
+# value - attribute to load. See https://citeck-ecos.readthedocs.io/ru/latest/general/ECOS_Records.html#id6
+model:
+  docRef: '?id'
+  docName: '?disp'
+  children: 'childEntities[]{name!''no-name'',number?num!}![]'
+  comment: '$actionData.comment'
+
+
+

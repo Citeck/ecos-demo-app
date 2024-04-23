@@ -1,0 +1,7 @@
+---
+# application properties
+
+ecos:
+  demo:
+    simple-annotated-job:
+      delay: PT10M # every 10 minutes

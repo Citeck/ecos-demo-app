@@ -1,0 +1,38 @@
+---
+id: demo-inmem-type
+name:
+  ru: Демо in-memory тип
+  en: Demo in-memory type
+
+parentRef: emodel/type@case
+
+#see ru.citeck.ecos.webapp.demo.records.DemoInMemRecordsDao
+sourceId: ecos-demo-app/demo-inmem-data
+
+# DEFAULT_FORM and DEFAULT_JOURNAL is special values.
+# If form or journal has this values,
+# then auto form or/and journal will be created
+# with id type$demo-inmem-type (prefix 'type$' plus {TYPE_ID})
+formRef: uiserv/form@DEFAULT_FORM
+journalRef: uiserv/journal@DEFAULT_JOURNAL
+
+inheritForm: false
+defaultCreateVariant: true
+
+inheritActions: false
+actions:
+  - uiserv/action@view-dashboard
+  - uiserv/action@edit
+  - uiserv/action@delete
+
+model:
+  attributes:
+    - id: textField
+      name:
+        ru: Текстовое поле
+        en: Text field
+    - id: numField
+      type: NUMBER
+      name:
+        ru: Числовое поле
+        en: Number field
