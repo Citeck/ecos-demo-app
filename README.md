@@ -1,92 +1,87 @@
-# ecos-demo-app
+![Citeck ECOS Logo](https://raw.githubusercontent.com/Citeck/ecos-ui/develop/public/img/logo/ecos-logo.png)
 
+# `ecos-demo-app`
 
+Welcome to the Citeck `ecos-demo-app` repository! This repository contains demo application with demonstration of ECOS features.
+When you start this application in default left menu will appear 'Demo type' section with two journals:
+1. Demo type entities - main demo journal with BPMN process and different demo actions. Demo scenario below will be with this type.
+2. Demo in-memory type - journal with in-memory entities to demonstrate working with custom RecordsDAO defined in ru.citeck.ecos.webapp.demo.records.DemoInMemRecordsDao. 
+   You can create/view/edit/delete records in this journal and see what changed in DemoInMemRecordsDao.
 
-## Getting started
+## Get started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+If you are new to ECOS platform and would like to run the software locally, we recommend you download the Dockerized version from [Demo repository](https://github.com/Citeck/ecos-community-demo).
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Demo scenario
 
-## Add your files
+1. Run ecos-demo-app
+2. Tap 'Create' button in top-left corner in ECOS.
+3. Chose Demo type -> Demo type;
+4. Enter in field 'Text data' value 'error' and click to 'Save' button. You should see error from transactional listener defined in ru.citeck.ecos.webapp.demo.events.DemoEcosEventListener;
+5. Change value of field 'Text data' to anything else and fill other fields;
+6. After creation, you'll see information about created record.
+    * Status will be 'New'. This is defined in property defaultStatus in type config - src/main/resources/eapps/artifacts/model/type/demo-type.yml
+    * Task widgets will show active task for current user. BPMN process started because we have process definition in src/main/resources/eapps/artifacts/process/bpmn/demo-process.bpmn.xml with flags ecos:enabled="true" and ecos:autoStartEnabled="true".
+7. Click to 'Done' button in current task widget;
+8. Task will disappear and external task will be started - ru.citeck.ecos.webapp.demo.exttask.DemoExternalTask;
+9. After ~5-10 seconds you can update your browser tab and see new status 'Completed' and filled field 'Field generated in external task'. BPMN Process completed at this point.
+10. You can click to 'Send demo email' to test custom action with email sending. 
+    * Action class: ru.citeck.ecos.webapp.demo.action.SendDemoEmailAction
+    * Action definition: src/main/resources/eapps/artifacts/ui/action/send-demo-email-action.yml
+    * Email template: src/main/resources/eapps/artifacts/notification/template/demo-email.html.ftl
+    * Result email can be found in mailhog (if you don't change default email settings) - http://localhost:8025/
+11. After email action testing you can call 'Create child entity' to test ability to create linked entities by action.
+    * Action definition: src/main/resources/eapps/artifacts/ui/action/create-child-entity-action.yml
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Useful Links
+
+- [Documentation](https://citeck-ecos.readthedocs.io/ru/latest/index.html) provides more in-depth information.
+
+## Dependencies
+
+To run this application the following applications from ECOS deployment are needed:
+
+* zookeeper
+* rabbitmq
+* ecos-model
+* ecos-registry
+
+## Development
+
+To start your application in the dev profile, simply run:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.citeck.ru/ecos-community/ecos-demo-app.git
-git branch -M master
-git push -uf origin master
+./mvnw spring-boot:run
 ```
 
-## Integrate with your tools
+If your IDE supports starting Spring Boot applications directly, then you can easily run the class 'ru.citeck.ecos.webapp.demo.EcosDemoApp' without additional setup.
 
-- [ ] [Set up project integrations](https://gitlab.citeck.ru/ecos-community/ecos-demo-app/-/settings/integrations)
+### Building for production
 
-## Collaborate with your team
+To build the application for production, run:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+```
+./mvnw -Pprod clean package jib:dockerBuild -Djib.docker.image.tag=custom 
+```
 
-## Test and Deploy
+To ensure everything worked, stop original ecos-demo-app container and start ecos-demo-app:custom instead of it.
 
-Use the built-in continuous integration in GitLab.
+### Testing
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+To launch your application's tests, run:
 
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+```
+./mvnw clean test
+```
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+We welcome contributions from the community to make ECOS even better. Everyone interacting in the Citeck project’s codebases, issue trackers, chat rooms, and forum is expected to follow the [contributor code of conduct](https://github.com/rubygems/rubygems/blob/master/CODE_OF_CONDUCT.md).
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Support
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+If you need any assistance or have any questions regarding Citeck `ecos-demo-app`, please create an issue in this repository or reach out to our [support team](mailto:support@citeck.ru).
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Citeck `ecos-demo-app` is released under the [GNU Lesser General Public License](LICENSE).

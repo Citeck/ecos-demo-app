@@ -22,6 +22,7 @@ public class SimpleAnnotatedJob {
     private final RecordsService recordsService;
 
     /**
+     * Job will be executed as system.
      * @see Scheduled
      */
     @Scheduled(fixedDelayString = "${ecos.demo.simple-annotated-job.delay}")
