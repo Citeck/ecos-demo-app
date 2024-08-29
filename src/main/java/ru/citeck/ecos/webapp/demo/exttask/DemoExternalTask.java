@@ -24,7 +24,7 @@ public class DemoExternalTask implements ExternalTaskHandler {
     private final RecordsService recordsService;
 
     @Override
-    // If you wrapp execute method in RunInTransaction, then external task
+    // If you wrap execute method in RunInTransaction, then external task
     // in process should have flag asyncAfter to avoid transactional errors
     @RunInTransaction
     @ExternalTaskRetry(retries = 10, retryTimeout = 10_000)

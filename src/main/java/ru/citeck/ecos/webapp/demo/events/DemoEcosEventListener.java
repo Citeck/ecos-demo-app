@@ -13,7 +13,7 @@ import ru.citeck.ecos.records2.predicate.model.Predicates;
 import ru.citeck.ecos.records3.record.atts.schema.annotation.AttName;
 import ru.citeck.ecos.webapp.api.entity.EntityRef;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 @Slf4j
 @Component
