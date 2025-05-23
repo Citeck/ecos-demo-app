@@ -1,8 +1,8 @@
-![Citeck ECOS Logo](https://raw.githubusercontent.com/Citeck/ecos-ui/develop/public/img/logo/ecos-logo.png)
+![Citeck ECOS Logo](https://raw.githubusercontent.com/Citeck/ecos-ui/develop/public/img/logo/ecos-logo.svg)
 
 # `ecos-demo-app`
 
-Welcome to the Citeck `ecos-demo-app` repository! This repository contains demo application that demonstrates ECOS features.
+Welcome to the Citeck `ecos-demo-app` repository! This repository contains demo application that demonstrates Citeck features.
 
 When you start this application in default left menu will appear **'Demo type'** section with two journals:
 1. **Demo type entities** - main demo journal with BPMN process and different demo actions. The demo scenario written below is based on this type. 
@@ -10,12 +10,12 @@ When you start this application in default left menu will appear **'Demo type'**
 
 ## Get started
 
-If you are new to ECOS platform and would like to run the software locally, we recommend you download the Dockerized version from [Demo repository](https://github.com/Citeck/ecos-community-demo).
+If you are new to Citeck platform and would like to run the software locally, we recommend you download the Dockerized version from [Demo repository](https://github.com/Citeck/ecos-community-demo).
 
 ## Demo scenario
 
 1. Run **ecos-demo-app**.
-2. Tap **'Create'** button in top-left corner in ECOS.
+2. Tap **'Create'** button in top-left corner in Citeck.
 3. Chose **Demo type -> Demo type**.
 4. Enter in field **'Text data'** value *'error'* and click **'Save'** button. You should see error from transactional listener defined in *ru.citeck.ecos.webapp.demo.events.DemoEcosEventListener*.
 5. Change value of the field **'Text data'** to anything else and fill in other fields.
@@ -39,7 +39,7 @@ If you are new to ECOS platform and would like to run the software locally, we r
 
 ## Dependencies
 
-To run this application the following applications from ECOS deployment are needed:
+To run this application the following applications from Citeck deployment are needed:
 
 * zookeeper
 * rabbitmq
@@ -76,7 +76,7 @@ To launch your application's tests, run:
 
 ## Contributing
 
-We welcome contributions from the community to make ECOS even better. Everyone interacting in the Citeck project’s codebases, issue trackers, chat rooms, and forum is expected to follow the [contributor code of conduct](https://github.com/rubygems/rubygems/blob/master/CODE_OF_CONDUCT.md).
+We welcome contributions from the community to make Citeck even better. Everyone interacting in the Citeck project’s codebases, issue trackers, chat rooms, and forum is expected to follow the [contributor code of conduct](https://github.com/rubygems/rubygems/blob/master/CODE_OF_CONDUCT.md).
 
 ## Support
 
