@@ -1,5 +1,7 @@
 ---
 # application properties
+server:
+  port: 18150
 
 ecos:
   demo:
